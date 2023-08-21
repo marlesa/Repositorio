@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Configuración de la aplicación Flask
 app.secret_key = 'mleon$'  
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'  
+app.config['MYSQL_DATABASE_HOST'] = 'docker-mysql'  
 app.config['MYSQL_DATABASE_USER'] = 'root'  
 app.config['MYSQL_DATABASE_PASSWORD'] = 'maRia468/'  
 app.config['MYSQL_DATABASE_DB'] = 'microservicios'  
@@ -26,7 +26,7 @@ mysql = pymysql.connect(
     db=app.config['MYSQL_DATABASE_DB']
 )
 
-#Inicio de sesión
+#Inicio de sesión 
 @app.route('/login', methods=['POST'])
 def login():
     datos = request.get_json()  
